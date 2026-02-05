@@ -1,0 +1,183 @@
+# =============================================================================
+# cider config — edit this to customize your setup
+# =============================================================================
+# Every value here has a sensible default baked into the module.
+# Uncomment and change only what you want to override.
+
+# ── Module toggles ───────────────────────────────────────────────────────────
+# Set enabled: false to skip a module entirely.
+modules:
+  brew:
+    enabled: true
+  cli_tools:
+    enabled: true
+  shell:
+    enabled: true
+  git:
+    enabled: true
+  languages:
+    enabled: true
+  apps:
+    enabled: true
+  macos:
+    enabled: true
+  ssh:
+    enabled: true
+
+# ── Homebrew packages ────────────────────────────────────────────────────────
+brew:
+  taps:
+    - homebrew/bundle
+
+  # Core CLI tools — the essentials
+  formulae:
+    - bat             # better cat
+    - eza             # better ls
+    - fd              # better find
+    - fzf             # fuzzy finder
+    - gh              # GitHub CLI
+    - git             # latest git (not Apple's)
+    - git-delta       # better git diff
+    - htop            # process viewer
+    - jq              # JSON processor
+    - yq              # YAML processor
+    - ripgrep         # better grep
+    - starship        # cross-shell prompt
+    - tldr            # simplified man pages
+    - tree            # directory viewer
+    - watch           # run commands periodically
+    - wget            # HTTP fetcher
+    - zoxide          # smarter cd
+    - tmux            # terminal multiplexer
+    - curl            # latest curl
+    - coreutils       # GNU core utilities
+    - make            # latest make
+    - stow            # dotfile symlink manager
+
+  # GUI apps via casks
+  casks:
+    - wezterm         # GPU-accelerated terminal
+    - visual-studio-code
+    - firefox
+    - raycast         # launcher / productivity
+    - docker
+    - 1password       # password manager
+    - obsidian        # note-taking
+    - arc             # browser
+
+  # Fonts — "font-" prefix is auto-added if missing
+  fonts:
+    - meslo-lg-nerd-font            # recommended for starship / terminal icons
+    - jetbrains-mono-nerd-font      # great all-rounder for editors
+    - fira-code-nerd-font           # ligatures + nerd font glyphs
+    - inter                         # clean UI / sans-serif font
+    - commit-mono                   # neutral monospace for code
+
+# ── Shell ────────────────────────────────────────────────────────────────────
+shell:
+  # Default shell: "zsh" or "fish" or "bash"
+  default: zsh
+
+  # Extra zsh plugins (oh-my-zsh style) — installed via brew or git
+  zsh_plugins:
+    - zsh-autosuggestions
+    - zsh-syntax-highlighting
+    - zsh-completions
+
+  # Starship prompt theme: "default", "nerd-font", or "plain"
+  starship_preset: default
+
+# ── Git ──────────────────────────────────────────────────────────────────────
+git:
+  # Leave blank to be prompted at runtime
+  name: ""
+  email: ""
+
+  default_branch: main
+
+  # Opinionated aliases — set to false to skip
+  aliases: true
+
+  # Sign commits with SSH key: true / false
+  sign_commits: false
+
+  # Global gitignore extras (appended to a sensible default)
+  extra_ignores:
+    - "*.bak"
+    - "*.swp"
+
+# ── Programming languages ───────────────────────────────────────────────────
+languages:
+  node:
+    enabled: true
+    # Version manager: "fnm" (fast) or "nvm"
+    manager: fnm
+    # LTS version to install
+    version: "--lts"
+    # Global npm packages
+    global_packages:
+      - pnpm
+      - typescript
+      - tsx
+      - prettier
+      - eslint
+
+  python:
+    enabled: true
+    # Version manager: "pyenv" or "uv"
+    manager: uv
+    # Python version to install
+    version: "3.12"
+    # Global tools (installed via uv tool or pipx)
+    global_tools:
+      - ruff
+      - black
+      - ipython
+      - httpie
+
+  rust:
+    enabled: true
+    # Extra components
+    components:
+      - clippy
+      - rustfmt
+
+  go:
+    enabled: true
+    version: "latest"
+
+# ── macOS defaults ───────────────────────────────────────────────────────────
+macos:
+  # Finder
+  show_hidden_files: true
+  show_path_bar: true
+  show_status_bar: true
+  default_view: "list"        # list, icon, column, gallery
+
+  # Dock
+  dock_autohide: true
+  dock_size: 48               # tile size in pixels
+  dock_minimize_effect: scale # scale or genie
+
+  # Keyboard
+  key_repeat_rate: 2          # lower = faster (normal is 6)
+  initial_key_repeat: 15      # lower = shorter delay (normal is 25)
+
+  # Trackpad
+  tap_to_click: true
+
+  # Screenshots
+  screenshot_location: "~/Desktop/Screenshots"
+  screenshot_format: png      # png, jpg, pdf, tiff
+
+  # Misc
+  disable_ds_store_network: true
+  disable_ds_store_usb: true
+
+# ── SSH ──────────────────────────────────────────────────────────────────────
+ssh:
+  # Generate a new ed25519 key if none exists
+  generate_key: true
+  key_type: ed25519
+  # Comment for the key (default: git email)
+  key_comment: ""
